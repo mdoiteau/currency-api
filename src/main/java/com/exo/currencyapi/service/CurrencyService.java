@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -22,5 +23,16 @@ public class CurrencyService {
                 .map(currencyDetailsData -> currencyAdapter.toCurrency(currencyDetailsData) )
                 .collect(Collectors.toList());
         return currencyList;
+    }
+
+    public CurrencyDetailsData getCurrencyDetails(String id) {
+        List<CurrencyDetailsData> currencyDetailsDataList = new CurrencyDetailsDataMock().loadMock();
+        Optional<CurrencyDetailsData> currencyDetailsDataOptional = currencyDetailsDataList.stream()
+                .filter(cdd -> cdd.getId().equals(id))
+                .findFirst();
+        if (currencyDetailsDataOptional.isPresent())
+            return currencyDetailsDataOptional.get();
+        else
+            return null;
     }
 }
