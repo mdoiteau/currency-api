@@ -1,13 +1,11 @@
 package com.exo.currencyapi.service;
 
-import com.exo.currencyapi.model.Currency;
+import com.exo.currencyapi.model.adapter.CurrencyAdapter;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -17,20 +15,13 @@ public class CurrencyServiceTest {
     @InjectMocks
     CurrencyService currencyService;
 
-    @Test
-    public void shouldTest() {
-        List<Currency> expectedResult = givenACurrencyList();
-        assertThat(currencyService.getCurrencyList()).isEqualTo(expectedResult);
-    }
+    @Mock
+    CurrencyAdapter currencyAdapter;
 
-    public List<Currency> givenACurrencyList() {
-        Currency currency = new Currency();
-        currency.setId("Euro");
-        currency.setType("national");
-        currency.setSymbol("€");
-        ArrayList<Currency> currencyList = new ArrayList<>();
-        currencyList.add(currency);
-        return currencyList;
+    @Test
+    public void shouldGetCurrencyList() {
+        assertThat(currencyService.getCurrencyList()).isNotEmpty();
+        assertThat(currencyService.getCurrencyList()).hasSize(6);
     }
 
 
