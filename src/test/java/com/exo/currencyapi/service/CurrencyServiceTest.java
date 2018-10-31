@@ -1,6 +1,6 @@
 package com.exo.currencyapi.service;
 
-import com.exo.currencyapi.model.CurrencyDetailsData;
+import com.exo.currencyapi.model.CurrencyDetails;
 import com.exo.currencyapi.model.adapter.CurrencyAdapter;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,7 +28,7 @@ public class CurrencyServiceTest {
     @Test
     public void shouldGetCurrencyDetails() {
         String id = "EUR";
-        CurrencyDetailsData currencyDetails = currencyService.getCurrencyDetails(id);
+        CurrencyDetails currencyDetails = currencyService.getCurrencyDetails(id);
         assertThat(currencyDetails).isNotNull();
         assertThat(currencyDetails.getId()).isEqualTo(id);
 

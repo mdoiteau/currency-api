@@ -13,7 +13,7 @@ public class CurrencyDetailsDataTest {
 
     @Test
     public void shouldGetAndSetId() {
-        CurrencyDetailsData objInstance = new CurrencyDetailsData();
+        CurrencyDetails objInstance = new CurrencyDetails();
         String value = "ABC";
         objInstance.setId(value);
         assertThat(objInstance.getId()).isEqualTo(value);
@@ -21,27 +21,27 @@ public class CurrencyDetailsDataTest {
 
     @Test
     public void shouldGetAndSetAttributes() {
-        CurrencyDetailsData objInstance = new CurrencyDetailsData();
-        CurrencyDetails value = new CurrencyDetails();
+        CurrencyDetails objInstance = new CurrencyDetails();
+        CurrencyAttributes value = new CurrencyAttributes();
         objInstance.setAttributes(value);
         assertThat(objInstance.getAttributes()).isEqualTo(value);
     }
 
     @Test
     public void shouldHaveDefaultConstructor() {
-        CurrencyDetailsData objInstance = new CurrencyDetailsData();
+        CurrencyDetails objInstance = new CurrencyDetails();
         assertThat(objInstance).isNotNull();
     }
 
     @Test
     public void shouldHaveToStringMethod() {
-        CurrencyDetailsData objInstance = new CurrencyDetailsData();
+        CurrencyDetails objInstance = new CurrencyDetails();
         assertThat(objInstance.toString()).isNotNull().isNotEmpty();
     }
 
     @Test
     public void equalsContract() {
-        EqualsVerifier.forClass(CurrencyDetailsData.class)
+        EqualsVerifier.forClass(CurrencyDetails.class)
                 .suppress(Warning.NONFINAL_FIELDS)
                 .usingGetClass()
                 .verify();

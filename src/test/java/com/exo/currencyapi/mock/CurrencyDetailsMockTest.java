@@ -1,6 +1,6 @@
 package com.exo.currencyapi.mock;
 
-import com.exo.currencyapi.model.CurrencyDetailsData;
+import com.exo.currencyapi.model.CurrencyDetails;
 import org.junit.Test;
 
 import java.util.List;
@@ -11,7 +11,7 @@ public class CurrencyDetailsMockTest {
 
     @Test
     public void shouldLoadMock() {
-        List<CurrencyDetailsData> mocks = new CurrencyDetailsDataMock().loadMock();
+        List<CurrencyDetails> mocks = new CurrencyDetailsDataMock().loadMock();
         assertThat(mocks).isNotEmpty();
         assertThat(mocks).hasSize(6);
     }

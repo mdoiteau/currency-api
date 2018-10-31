@@ -1,7 +1,7 @@
 package com.exo.currencyapi.controller;
 
 import com.exo.currencyapi.model.Currency;
-import com.exo.currencyapi.model.CurrencyDetailsData;
+import com.exo.currencyapi.model.CurrencyDetails;
 import com.exo.currencyapi.service.CurrencyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +22,7 @@ public class CurrencyController {
     }
 
     @RequestMapping(value="/getCurrencyDetails")
-    public CurrencyDetailsData getCurrencyDetails(@RequestParam("id") String id) {
+    public CurrencyDetails getCurrencyDetails(@RequestParam("id") String id) {
         return currencyService.getCurrencyDetails(id);
     }
 

@@ -2,7 +2,7 @@ package com.exo.currencyapi.service;
 
 import com.exo.currencyapi.mock.CurrencyDetailsDataMock;
 import com.exo.currencyapi.model.Currency;
-import com.exo.currencyapi.model.CurrencyDetailsData;
+import com.exo.currencyapi.model.CurrencyDetails;
 import com.exo.currencyapi.model.adapter.CurrencyAdapter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,16 +18,16 @@ public class CurrencyService {
     private CurrencyAdapter currencyAdapter;
 
     public List<Currency> getCurrencyList() {
-        List<CurrencyDetailsData> currencyDetailsDataList = new CurrencyDetailsDataMock().loadMock();
+        List<CurrencyDetails> currencyDetailsDataList = new CurrencyDetailsDataMock().loadMock();
         List<Currency> currencyList = currencyDetailsDataList.stream()
                 .map(currencyDetailsData -> currencyAdapter.toCurrency(currencyDetailsData) )
                 .collect(Collectors.toList());
         return currencyList;
     }
 
-    public CurrencyDetailsData getCurrencyDetails(String id) {
-        List<CurrencyDetailsData> currencyDetailsDataList = new CurrencyDetailsDataMock().loadMock();
-        Optional<CurrencyDetailsData> currencyDetailsDataOptional = currencyDetailsDataList.stream()
+    public CurrencyDetails getCurrencyDetails(String id) {
+        List<CurrencyDetails> currencyDetailsDataList = new CurrencyDetailsDataMock().loadMock();
+        Optional<CurrencyDetails> currencyDetailsDataOptional = currencyDetailsDataList.stream()
                 .filter(cdd -> cdd.getId().equals(id))
                 .findFirst();
         if (currencyDetailsDataOptional.isPresent())

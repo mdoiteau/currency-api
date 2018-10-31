@@ -1,8 +1,8 @@
 package com.exo.currencyapi.model.adapter;
 
 import com.exo.currencyapi.model.Currency;
+import com.exo.currencyapi.model.CurrencyAttributes;
 import com.exo.currencyapi.model.CurrencyDetails;
-import com.exo.currencyapi.model.CurrencyDetailsData;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -18,10 +18,10 @@ public class CurrencyAdapterTest {
 
     @Test
     public void shouldAdapt() {
-        CurrencyDetailsData currencyDetailsData = new CurrencyDetailsData();
+        CurrencyDetails currencyDetailsData = new CurrencyDetails();
         String id = "EUR";
         currencyDetailsData.setId(id);
-        CurrencyDetails currencyDetails = new CurrencyDetails();
+        CurrencyAttributes currencyDetails = new CurrencyAttributes();
         String symbol = "€";
         currencyDetails.setSymbol(symbol);
         String type = "national";

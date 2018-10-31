@@ -1,7 +1,7 @@
 package com.exo.currencyapi.controller;
 
 import com.exo.currencyapi.model.Currency;
-import com.exo.currencyapi.model.CurrencyDetailsData;
+import com.exo.currencyapi.model.CurrencyDetails;
 import com.exo.currencyapi.service.CurrencyService;
 import org.assertj.core.util.Lists;
 import org.junit.Test;
@@ -38,13 +38,13 @@ public class CurrencyControllerTest {
 
     @Test
     public void shouldGetCurrencyDetails() {
-        CurrencyDetailsData expectedCurrency = new CurrencyDetailsData();
+        CurrencyDetails expectedCurrency = new CurrencyDetails();
         String id = "test";
         expectedCurrency.setId(id);
 
         Mockito.when(currencyService.getCurrencyDetails(id)).thenReturn(expectedCurrency);
 
-        CurrencyDetailsData currencyDetailsResult = currencyController.getCurrencyDetails(id);
+        CurrencyDetails currencyDetailsResult = currencyController.getCurrencyDetails(id);
         assertThat(currencyDetailsResult).isNotNull();
         assertThat(currencyDetailsResult).isEqualTo(expectedCurrency);
     }
@@ -52,7 +52,7 @@ public class CurrencyControllerTest {
     @Test
     public void shouldGetNullIfNoExistedCurrencyDetails() {
         Mockito.when(currencyService.getCurrencyDetails(Mockito.any())).thenReturn(null);
-        CurrencyDetailsData currencyDetailsResult = currencyController.getCurrencyDetails("test");
+        CurrencyDetails currencyDetailsResult = currencyController.getCurrencyDetails("test");
         assertThat(currencyDetailsResult).isNull();
     }
 }

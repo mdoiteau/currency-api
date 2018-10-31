@@ -1,6 +1,6 @@
 package com.exo.currencyapi.mock;
 
-import com.exo.currencyapi.model.CurrencyDetailsData;
+import com.exo.currencyapi.model.CurrencyDetails;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 
@@ -13,13 +13,13 @@ import java.util.List;
 
 public class CurrencyDetailsDataMock {
 
-    public List<CurrencyDetailsData> loadMock() {
+    public List<CurrencyDetails> loadMock() {
         Gson gson = new Gson();
         try {
             ClassLoader classLoader = getClass().getClassLoader();
             File file = new File(classLoader.getResource("mock/Currencies.json").getFile());
             JsonReader reader = new JsonReader(new FileReader(file));
-            CurrencyDetailsData[] list = gson.fromJson(reader, CurrencyDetailsData[].class);
+            CurrencyDetails[] list = gson.fromJson(reader, CurrencyDetails[].class);
             return Arrays.asList(list);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
